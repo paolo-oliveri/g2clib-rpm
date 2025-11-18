@@ -50,17 +50,16 @@ developing applications that use %{name}.
 %build
 
 %cmake
+cd redhat-linux-build
 make
 
 
 %install
 mkdir -p $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_includedir}
-pwd
-ls -l
-install -p -m0644 src/libg2c.a $RPM_BUILD_ROOT%{_libdir}/lib%{g2clib}.a
-install -p -m0755 src/libg2c.so.0 $RPM_BUILD_ROOT%{_libdir}/lib%{g2clib}.so.0
+install -p -m0644 redhat-linux-build/src/libg2c.a $RPM_BUILD_ROOT%{_libdir}/lib%{g2clib}.a
+install -p -m0755 redhat-linux-build/src/libg2c.so.0 $RPM_BUILD_ROOT%{_libdir}/lib%{g2clib}.so.0
 ln -s lib%{g2clib}.so.0 $RPM_BUILD_ROOT%{_libdir}/lib%{g2clib}.so
-install -p -m0644 src/grib2.h $RPM_BUILD_ROOT%{_includedir}
+install -p -m0644 redhat-linux-build/src/grib2.h $RPM_BUILD_ROOT%{_includedir}
 mkdir -p $RPM_BUILD_ROOT%{macrosdir}
 echo %%g2clib %g2clib > $RPM_BUILD_ROOT%{macrosdir}/macros.g2clib
 
@@ -76,9 +75,6 @@ echo %%g2clib %g2clib > $RPM_BUILD_ROOT%{macrosdir}/macros.g2clib
 %{macrosdir}/macros.g2clib
 
 %changelog
-* Wed Jun 4  2025 Paolo Oliveri <paul@oliveri.info> - 2.1.0-0
-- Rebuilt for RHEL 8
-
 * Tue Jun 3  2025 Paolo Oliveri <paul@oliveri.info> - 2.1.0-0
 - Rebuilt for RHEL 9
 
