@@ -1,0 +1,5 @@
+[submodule "g2clib"]
+    path = g2clib
+    url = https://github.com/NOAA-EMC/NCEPLIBS-g2c
+        branch = develop
+        commit = 5f79509bc3aa7ffab4324283c0fd0384c074f056
