@@ -15,10 +15,10 @@ BuildRequires:  make cmake
 BuildRequires:  gcc
 BuildRequires:  libpng-devel jasper-devel zlib-devel
 
-%global g2clib g2c
-
 # Ignore debuginfo
 %global debug_package %{nil}
+
+%global g2clib g2c
 
 %description
 This library contains "C" decoder/encoder
