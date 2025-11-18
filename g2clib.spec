@@ -45,14 +45,13 @@ developing applications that use %{name}.
 
 %prep
 %setup -q
-%patch0 -p1 -b .degrib
+%patch 0 -p1 -b .degrib
 
 %build
 
 %cmake
 cd redhat-linux-build
 make
-
 
 %install
 mkdir -p $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_includedir}
@@ -75,9 +74,6 @@ echo %%g2clib %g2clib > $RPM_BUILD_ROOT%{macrosdir}/macros.g2clib
 %{macrosdir}/macros.g2clib
 
 %changelog
-* Tue Jun 3  2025 Paolo Oliveri <paul@oliveri.info> - 2.1.0-0
-- Rebuilt for RHEL 9
-
 * Thu May 29 2025 Paolo Oliveri <paul@oliveri.info> - 2.1.0-0
 - Updated to version 2.1.0 and built for fedora 42 and RHEL 10
 
