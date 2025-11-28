@@ -9,7 +9,7 @@ License:        LicenseRef-Fedora-Public-Domain
 URL:            https://github.com/NOAA-EMC/NCEPLIBS-g2c
 Source0:        https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v%{version}.tar.gz
 # Patch from degrib - appears to fix projection issues
-Patch0:         g2clib-degrib.patch
+Patch0:         https://github.com/paolo-oliveri/g2clib-rpm/raw/refs/heads/master/g2clib-degrib.patch
 
 BuildRequires:  make cmake
 BuildRequires:  gcc
@@ -44,7 +44,7 @@ developing applications that use %{name}.
 
 
 %prep
-%setup -q
+%setup -q -n NCEPLIBS-g2c-%{version}
 %patch 0 -p1 -b .degrib
 
 %build
